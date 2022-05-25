@@ -1,0 +1,37 @@
+package Elecciones.src;
+
+
+public class Diputado extends Partido {
+	private int diputados;
+	
+	public Diputado ( String nombre ) {
+		super(nombre);
+		diputados = 0;
+	}
+	
+	public Diputado ( String nombre, int votos, int diputados ) {
+		super(nombre, votos);
+		this.diputados = diputados;
+	}
+	
+	public Diputado ( String nombre, int votos ) {
+		super(nombre, votos);
+		this.diputados = 1;
+	}
+
+	public void addVotos ( int x ) {
+		if ( x > 0 )
+			this.diputados += diputados;
+	}
+	
+	public int compareTo(Object o) {
+		if ( diputados != ((Diputado)o).diputados )
+			return -(diputados - ((Diputado)o).diputados);
+		return -(votos - ((Diputado)o).votos);
+
+	}
+	
+	public String toString ( ) {
+		return nombre + separador + diputados + separador + votos;
+	}
+}

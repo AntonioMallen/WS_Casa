@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Antonio Mallén\Documents\DAM\Casa\WS_Casa\ejerciciocpasswd"/>
+			<item value="C:\Users\Antonio Mallén\Documents\DAM\Casa\WS_Casa\archivo"/>
+			<item value="B:\Programas\workspaces (todos los programas)\Ws del pc principal\ejerciciocpasswd"/>
+			<item value="B:\Programas\workspaces (todos los programas)\Dam-todo\eclipse workspace\ejerciciocpasswd"/>
+			<item value="B:\Programas\workspaces (todos los programas)\Ws del pc principal\Cosas randoms\src\Elecciones"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

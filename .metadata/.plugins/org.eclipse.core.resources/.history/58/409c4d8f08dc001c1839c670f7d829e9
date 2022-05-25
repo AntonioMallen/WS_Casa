@@ -1,0 +1,16 @@
+package ejercicio1;
+
+import java.util.ArrayList;
+
+public class Opciones {
+
+	
+	private String fichero;
+
+	public Opciones(String archivo){
+		this.fichero=archivo;	
+	} 
+	
+	
+	
+}
