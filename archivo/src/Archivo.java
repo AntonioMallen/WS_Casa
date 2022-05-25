@@ -9,44 +9,82 @@ import java.util.ArrayList;
 
 public class Archivo {
 
-	public static ArrayList<Objetoprueba> leer(){
-		
-		ArrayList<Objetoprueba> vector =new ArrayList<Objetoprueba>();
-		
-		try (ObjectInputStream lecturaObjetos = new ObjectInputStream(new FileInputStream("agenda.dat"))) {
+		public static ArrayList<Objetoprueba> leer(String fichero) {
 			
-			while(true){
-				Objetoprueba o = (Objetoprueba)lecturaObjetos.readObject();
-				vector.add(o);
-			}
+			ArrayList<Objetoprueba> vector =new ArrayList<Objetoprueba>();
+			
+			ObjectInputStream lecturaObjetos = null;
+			try { 
+				lecturaObjetos = new ObjectInputStream(new FileInputStream(fichero));
+				while(true){
+					Objetoprueba o = (Objetoprueba)lecturaObjetos.readObject();
+					vector.add(o);
+				}
 
-		} catch (FileNotFoundException ex) {
-			System.out.println("No hay fichero");
-			return null;
-		} catch (EOFException ex) {
-			System.out.println("Contactos añadidos del fichero");
+			} catch (FileNotFoundException ex) {
+				return null;
+			} catch (EOFException ex) {
+				System.out.println("Contactos añadidos del fichero");
+				if(lecturaObjetos!=null) {
+					try {
+						lecturaObjetos.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				return vector;
+			} catch (IOException ex) {
+				System.out.println(ex.getMessage());
+			} catch (ClassNotFoundException ex) {
+				System.out.println(ex.getMessage());
+			}
+			if(lecturaObjetos!=null) {
+				try {
+					lecturaObjetos.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
 			return vector;
-		} catch (IOException ex) {
-			System.out.println(ex.getMessage());
-		} catch (ClassNotFoundException ex) {
-			System.out.println(ex.getMessage());
+			
 		}
-		return vector;
 		
-	}
-	
-	public static void escribir(ArrayList<Objetoprueba> asd) {
-		try (ObjectOutputStream escribirObjeto = new ObjectOutputStream(new FileOutputStream("agenda.dat"))) {
-			for (Object tfno : asd) {
-				escribirObjeto.writeObject(tfno);
+		public static void escribir(String fichero, ArrayList<Objetoprueba> asd) {
+			ObjectOutputStream escribirObjeto = null;
+			try { 
+				escribirObjeto = new ObjectOutputStream(new FileOutputStream(fichero));
+				for (Object contactos : asd) {
+					escribirObjeto.writeObject(contactos);
+				}
+				
+			} catch (FileNotFoundException ex) {
+				System.out.println(ex.getMessage());
+			} catch (IOException ex) {
+				System.out.println(ex.getMessage());
+			} 
+			if(escribirObjeto!=null) {
+				try {
+					escribirObjeto.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+		}
+		
+		
+		/**
+		 * 
+		public void guardar() {
+			Archivo.escribir(fichero, contactos);
+		}
 
-		} catch (FileNotFoundException ex) {
-			System.out.println(ex.getMessage());
-		} catch (IOException ex) {
-			System.out.println(ex.getMessage());
-		} 
-	}
-	
+
+		public void leer() throws IOException {
+			contactos.addAll(Archivo.leer(fichero));
+		}
+		 */
+		
+		
 	
 }
