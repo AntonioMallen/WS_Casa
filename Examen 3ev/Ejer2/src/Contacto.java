@@ -3,7 +3,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Contacto implements Serializable{
+public class Contacto implements Serializable, Comparable<Contacto>{
 
 	protected String nombre;
 	protected String apellido;
@@ -35,4 +35,8 @@ public class Contacto implements Serializable{
 		}
 		return nombre + " " + apellido+salida;
 	}
+	
+	 public int compareTo(Contacto o){
+	        return nombre.compareTo(o.getNombre());
+	    }
 }

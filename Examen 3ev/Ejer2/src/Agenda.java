@@ -47,14 +47,10 @@ public class Agenda {
 	}
 
 	public void ordenar() throws IOException {
-		Set<String> ordenado = new TreeSet<String>();
-
-		for(Contacto x : contactos) 
-			ordenado.add(x.getNombre()+" "+x.getApellido() );
+		Collections.sort(contactos);
 		
-		for(String y : ordenado) 
-			System.out.println(y);
-		
+		for (Contacto o : contactos)
+			System.out.println(o);
 	}
 
 
@@ -150,6 +146,9 @@ public class Agenda {
 		}
 		return false;
 	}
+
+
+
 
 
 }
